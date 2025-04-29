@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Healthy Study Competition</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col items-center p-4">
+  <header class="mb-6 text-center">
+    <h1 class="text-3xl font-bold text-gray-800">Healthy Study Competition</h1>
+    <p class="text-gray-600 mt-1">Track your chapters, take weekly tests, and compete healthily!</p>
+  </header>
+
+  <main class="w-full max-w-4xl bg-white rounded-lg shadow p-6 space-y-6">
+    <section id="chapter-input" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <h2 class="text-xl font-semibold mb-2 text-blue-700">Your Study Progress</h2>
+        <form id="user1-form" class="space-y-4">
+          <div>
+            <label for="user1-subject" class="block font-medium text-gray-700">Subject</label>
+            <input type="text" id="user1-subject" placeholder="Enter subject name" class="w-full border border-gray-300 rounded px-3 py-2" required />
+          </div>
+          <div>
+            <label for="user1-chapters" class="block font-medium text-gray-700">Chapters Studied</label>
+            <input type="number" id="user1-chapters" min="0" placeholder="Number of chapters" class="w-full border border-gray-300 rounded px-3 py-2" required />
+          </div>
+          <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Add/Update</button>
+        </form>
+        <div class="mt-4">
+          <h3 class="font-semibold text-gray-800">Your Subjects & Chapters</h3>
+          <ul id="user1-subject-list" class="list-disc list-inside text-gray-700"></ul>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold mb-2 text-green-700">Friend's Study Progress</h2>
+        <form id="user2-form" class="space-y-4">
+          <div>
+            <label for="user2-subject" class="block font-medium text-gray-700">Subject</label>
+            <input type="text" id="user2-subject" placeholder="Enter subject name" class="w-full border border-gray-300 rounded px-3 py-2" required />
+          </div>
+          <div>
+            <label for="user2-chapters" class="block font-medium text-gray-700">Chapters Studied</label>
+            <input type="number" id="user2-chapters" min="0" placeholder="Number of chapters" class="w-full border border-gray-300 rounded px-3 py-2" required />
+          </div>
+          <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">Add/Update</button>
+        </form>
+        <div class="mt-4">
+          <h3 class="font-semibold text-gray-800">Friend's Subjects & Chapters</h3>
+          <ul id="user2-subject-list" class="list-disc list-inside text-gray-700"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="scores" class="bg-gray-100 rounded p-4">
+      <h2 class="text-2xl font-semibold mb-4 text-center">Scores & Weekly Competition</h2>
+      <div class="flex flex-col md:flex-row justify-around space-y-4 md:space-y-0 md:space-x-6">
+        <div class="text-center">
+          <h3 class="text-lg font-semibold text-blue-700">Your Score</h3>
+          <p id="user1-score" class="text-3xl font-bold text-gray-800">0</p>
+        </div>
+        <div class="text-center">
+          <h3 class="text-lg font-semibold text-green-700">Friend's Score</h3>
+          <p id="user2-score" class="text-3xl font-bold text-gray-800">0</p>
+        </div>
+      </div>
+      <div class="mt-6 flex justify-center space-x-4">
+        <button id="simulate-test" class="bg-purple-600 text-white px-5 py-2 rounded hover:bg-purple-700 transition flex items-center space-x-2">
+          <i class="fas fa-vials"></i><span>Simulate AI Test</span>
+        </button>
+        <button id="weekly-reset" class="bg-red-600 text-white px-5 py-2 rounded hover:bg-red-700 transition flex items-center space-x-2">
+          <i class="fas fa-sync-alt"></i><span>Weekly Reset</span>
+        </button>
+      </div>
+      <div class="mt-4 text-center text-gray-700" id="test-result"></div>
+      <div class="mt-4 text-center text-gray-700" id="tie-breakers">Tie Breakers: 0</div>
+    </section>
+  </main>
+
+  <footer class="mt-8 text-center text-gray-500 text-sm">
+    &copy; 2024 Healthy Study Competition
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
